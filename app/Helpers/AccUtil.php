@@ -64,6 +64,9 @@ class AccUtil
     public function acc_api($body_data=[],$trans_type,&$msg){
 
         $body = $this->data_format($body_data,$trans_type);
+
+        LogUtil::getLogger('acc_api')->info('[req_body]:'.$body);
+
         try
         {
             $client = new Client([
@@ -77,15 +80,22 @@ class AccUtil
                 'body' => $body
             ]);
 
+            LogUtil::getLogger('acc_api')->info('[resp_success]:'.print_r($r->getBody()->getContents(),true));
+
             return $r->getBody()->getContents();
 
         }
         catch (RequestException  $e)
         {
             $msg = $e->getMessage();
+
+            LogUtil::getLogger('acc_api')->info('[resp_error]:'.$msg);
+
+            /*//
             if ($e->hasResponse()) {
                 $msg = $e->getResponse()->getStatusCode();
             }
+            //*/
             return false;
         }
 

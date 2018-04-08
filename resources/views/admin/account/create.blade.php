@@ -183,7 +183,7 @@
                                 <input type="radio" name="acctype" value="00" class="minimal acctype" checked="" style="position: absolute;">&nbsp;对私&nbsp;&nbsp;
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="acctype" value="01" class="minimal acctype" style="position: absolute;">&nbsp&nbsp;对公&nbsp;&nbsp;
+                                <input type="radio" name="acctype" value="01" class="minimal acctype" style="position: absolute;">&nbsp;对公&nbsp;&nbsp;
                             </label>
                         </div>
                     </div>
@@ -263,7 +263,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <input type="hidden" name="_token" value="jEwuGle9jRGOdpsd4EDsts1nVoNSFz34C7jtc4Ff">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-8">
